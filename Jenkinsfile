@@ -4,18 +4,18 @@ peline {
 
     stages {
         stage('Build') {
-            steps {
-                echo 'Building..'
+            steps { 
+                git credentialsId: 'f0ab9fe7-fa13-4588-85a6-9395ecf17598', url: 'https://github.com/khaled-ghazal/orange.git'
             }
         }
         stage('Test') {
-            steps {
-                echo 'Testing..'
+            steps { 
+                sh 'docker build -t Jenkins_Pip_docker .'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'echo creation done is completed'
             }
         }
     }
