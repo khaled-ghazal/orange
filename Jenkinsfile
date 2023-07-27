@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps { 
               script {
-                sh 'docker build -t khaledghazal/orange-httpd:omar .'
+                sh 'docker build -t khaledghazal/orange-httpd:${BUILD_NUMBER} .'
               }
             }
         }
