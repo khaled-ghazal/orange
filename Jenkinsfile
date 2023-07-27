@@ -20,7 +20,7 @@ pipeline {
         stage('Push') {
             steps {
                script { 
-                Sh 'cat pas.txt | docker login --username khaledghazal --password-stdin'
+                sh 'cat pas.txt | docker login --username khaledghazal --password-stdin'
                 sh 'docker push khaledghazal/orange-httpd:omar' 
                }
             }
