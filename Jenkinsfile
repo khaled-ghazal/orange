@@ -3,19 +3,25 @@ peline {
     agent any
 
     stages {
+        stage('Clone') {
+            steps {
+ 
+               git branch: 'main', credentialsId: 'bf7474bd-4500-429e-9440-6eb8dce85d9e', url: 'https://github.com/khaled-ghazal/orange.git' 
+
+            }
+        }
         stage('Build') {
             steps { 
-                git credentialsId: 'f0ab9fe7-fa13-4588-85a6-9395ecf17598', url: 'https://github.com/khaled-ghazal/orange.git'
+              script {
+                sh 'docker build -t khaled-ghazal/orange-httpd:omar .'
+              }
             }
         }
-        stage('Test') {
-            steps { 
-                sh 'docker build -t Jenkins_Pip_docker .'
-            }
-        }
-        stage('Deploy') {
+        stage('Push') {
             steps {
-                sh 'echo creation done is completed'
+               script { 
+                sh 'docker push khaled-ghazal/orange-httpd:omar' 
+               }
             }
         }
     }
