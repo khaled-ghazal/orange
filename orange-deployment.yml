@@ -16,5 +16,5 @@ spec:
         app: orange
     spec:
       containers:
-      - image: khaledghazal/orange-httpd
+      - image: khaledghazal/orange-httpd:omar
         name: orange-httpd
