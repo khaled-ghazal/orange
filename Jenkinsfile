@@ -29,7 +29,7 @@ pipeline {
         stage('KubeDeploy') {
             steps {
                script {
-                sh 'kubectl apply -f orange-deployment.yml --kubeconig kubeconfig'
+                sh 'kubectl apply -f . --kubeconfig kubeconfig'
                }
             }
         }
