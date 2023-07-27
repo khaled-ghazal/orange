@@ -13,14 +13,14 @@ pipeline {
         stage('Build') {
             steps { 
               script {
-                sh 'docker build -t khaled-ghazal/orange-httpd:omar .'
+                sh 'docker build -t khaledghazal/orange-httpd:omar .'
               }
             }
         }
         stage('Push') {
             steps {
                script { 
-                sh 'docker push khaled-ghazal/orange-httpd:omar' 
+                sh 'docker push khaledghazal/orange-httpd:omar' 
                }
             }
         }
